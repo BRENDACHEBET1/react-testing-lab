@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import TransactionsList from "./TransactionsList";
 import Search from "./Search";
-import AddTransactionForm from "./AddTransactionForm";
+import AddTransactionForm from "../components/AddTransactionForm";
 import Sort from "./Sort";
 
 function AccountContainer() {
@@ -24,7 +24,7 @@ function AccountContainer() {
       body: JSON.stringify(newTransaction)
     })
     .then(r=>r.json())
-    .then(data=>setTransactions([...transactions,data]))
+    .then(data=>setTransactions(prev => [...prev,data]))
   }
   
   // Sort function here
